@@ -3,6 +3,7 @@ import {Suspense} from "react";
 import Profile from "@/components/Profile";
 import ProjectList from "@/components/ProjectList";
 import ProfileLoader from "@/components/Profile/loader";
+import ProjectLoader from "@/components/ProjectList/loader";
 
 export default function Home() {
   return (
@@ -10,7 +11,9 @@ export default function Home() {
       <Suspense fallback={<ProfileLoader />}>
           <Profile />
       </Suspense>
-      <ProjectList />
+    <Suspense fallback={<ProjectLoader />}>
+        <ProjectList />
+    </Suspense>
     </main>
   );
 }

@@ -1,20 +1,23 @@
 import React from 'react'
 import SubHeader from "@/components/shared/SubHeader";
-import ExternalTab from "@/components/ProjectBelow/ExternalTab";
+import ExternalTab from "@/components/ProjectList/ExternalTab";
+import {getProjectsFields} from "@/lib/air";
 
 
-const ProjectList = () => {
+const ProjectList = async () => {
+    const projects = await getProjectsFields()
+
     return (
-        <div className="flex flex-wrap flex-col justify-center items-start my-16 w-2/4">
+        <div className="flex flex-wrap flex-col justify-center items-start my-16 w-2/4 print:w-3/4">
             <SubHeader text={"Projects 🚜"} />
             <div>
-                {[1, 2, 3, 4].map((item, index) => {
-                    return <div className="flex justify-start items-start flex-col gap-1 mb-4">
-                        <span className="font-semibold">A Project Name</span>
-                        <span>Simple project that, that what we are talking about.</span>
+                {projects.map(({title, short_desc, git_url, prod_url}, index) => {
+                    return <div className="flex justify-start items-start flex-col gap-1 mb-4" key={index}>
+                        <span className="font-semibold">{title}</span>
+                        <span>{short_desc}</span>
                         <div className="flex justify-end items-center gap-2 mt-1">
-                            <ExternalTab title={"GitHub"} url={"https://github.com"} />
-                            <ExternalTab title={"Product"} url={"https://github.com"} />
+                            {!!git_url && <ExternalTab title={"GitHub"} url={git_url} />}
+                            {!!prod_url && <ExternalTab title={"Product"} url={prod_url} />}
                         </div>
                     </div>
                 })}

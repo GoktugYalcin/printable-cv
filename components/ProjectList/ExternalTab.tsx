@@ -7,7 +7,7 @@ type ExternalTabProps = {
 }
 
 const ExternalTab: React.FC<ExternalTabProps> = ({title, url}) => {
-    return <Link className="text-sm font-semibold hover:underline hover:text-slate-500 active:text-slate-500 transition-all" target={"_blank"} href={url}>{title}</Link>
+    return <Link className="text-sm font-semibold underline hover:text-slate-500 active:text-slate-500 transition-all" target={"_blank"} href={url}>{title}</Link>
 }
 
 export default ExternalTab
