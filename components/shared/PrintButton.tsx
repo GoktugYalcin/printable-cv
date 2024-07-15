@@ -4,7 +4,7 @@ import React from "react";
 import { CoolMode } from "@/components/shared/CoolMode";
 
 const PrintButton = () => {
-  const handlePrint = () => window.print();
+  const handlePrint = () => setTimeout(() => window.print(), 250);
   return (
     <CoolMode>
       <button
