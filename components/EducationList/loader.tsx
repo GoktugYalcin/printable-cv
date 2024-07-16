@@ -1,9 +1,9 @@
 import React from "react";
 import SubHeader from "@/components/shared/SubHeader";
 
-const ProjectLoader = () => {
+const EducationLoader = () => {
   return (
-    <div className="flex flex-wrap flex-col justify-center items-start my-16 w-2/4">
+    <div className="flex flex-wrap flex-col justify-center items-start w-2/4">
       <SubHeader text={"Projects 🚜"} loader />
       <div>
         {[1, 2, 3, 4].map((item, index) => {
@@ -30,4 +30,4 @@ const ProjectLoader = () => {
   );
 };
 
-export default ProjectLoader;
+export default EducationLoader;
